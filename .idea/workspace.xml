@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40dcc567-3e48-432d-ba36-2d5c9df7f8a7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/web_system/aula/enumerate/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_system/aula/enumerate/genero.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_system/aula/models/perfil.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_system/aula/models/pergunta.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sistema_aulas_faculdade_desenvolvedor_I.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sistema_aulas_faculdade_desenvolvedor_I.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_system/aula/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_system/aula/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_system/aula/models/atividade.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_system/aula/models/atividade.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web_system/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/web_system/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,9 +48,9 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "dia__27__08__2025",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Sandro/Documents/Github/sistema_aulas_faculdade_desenvolvedor_I",
+    "last_opened_file_path": "C:/Users/Teste/Documents/Github/sistema_aulas_faculdade_desenvolvedor_I",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -61,8 +63,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-PY-252.23892.515" />
-        <option value="bundled-python-sdk-7e47963ff851-f0eec537fc84-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.23892.515" />
+        <option value="bundled-python-sdk-657d8234b839-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.74" />
       </set>
     </attachedChunks>
   </component>
