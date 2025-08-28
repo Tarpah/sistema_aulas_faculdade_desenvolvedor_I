@@ -1,3 +1,5 @@
+
+
 from .base_model import BaseModel
 from django.db import models
 from ..enumerate.genero import Genero
@@ -12,3 +14,9 @@ class Tag(BaseModel):
 
     def __str__(self):
         return self.name
+
+class TagAdmin(admin.ModelAdmin):
+    list_display = ('cod','name','update_at')
+    readonly_fields = ('create_at', 'update_at')
+    search_fields = ('name',)
+    list_filter = ('update_at',)

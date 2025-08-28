@@ -6,4 +6,3 @@ from .restaurante import *
 from .perfil import *
 from .pergunta import *
 from .viagem import *
-from .tag import *

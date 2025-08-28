@@ -1,6 +1,5 @@
 from .base_model import BaseModel
 from django.db import models
-from datetime import date
 
 
 class Atividade(BaseModel):
