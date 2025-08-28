@@ -1,5 +1,5 @@
-from web_system.aula.models import baseModel
+from . import BaseModel
 
 
-class Viagem(baseModel):
+class Viagem(BaseModel):
     pass

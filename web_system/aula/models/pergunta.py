@@ -1,5 +1,5 @@
-from web_system.aula.models import baseModel
+from . import BaseModel
 
 
-class Pergunta(baseModel):
+class Pergunta(BaseModel):
     pass

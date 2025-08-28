@@ -5,14 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40dcc567-3e48-432d-ba36-2d5c9df7f8a7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/web_system/aula/enumerate/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_system/aula/enumerate/genero.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_system/aula/models/perfil.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_system/aula/models/pergunta.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_system/aula/models/avaliacao.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_system/aula/models/local.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_system/aula/models/restaurante.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_system/aula/models/tag.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sistema_aulas_faculdade_desenvolvedor_I.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sistema_aulas_faculdade_desenvolvedor_I.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_system/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/web_system/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_system/aula/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_system/aula/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_system/aula/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_system/aula/migrations/0002_atividade_nota_atividade_preco_atividade_turno.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_system/aula/migrations/0003_avaliacao_local_remove_atividade_preco_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_system/aula/migrations/0004_avaliacao_acompanhantes_avaliacao_comentario_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_system/aula/migrations/0005_restaurante.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_system/aula/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_system/aula/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_system/aula/models/atividade.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_system/aula/models/atividade.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_system/aula/models/base_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_system/aula/models/base_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_system/aula/models/perfil.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_system/aula/models/perfil.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_system/aula/models/pergunta.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_system/aula/models/pergunta.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_system/aula/models/viagem.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_system/aula/models/viagem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_system/db.sqlite3" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +48,9 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="31YLRjOZn21cph0Q3yT9onai06w" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -43,6 +58,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.apps.executor": "Run",
     "Python.atividade.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -63,7 +79,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-657d8234b839-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.74" />
+        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-PY-252.23892.515" />
+        <option value="bundled-python-sdk-7e47963ff851-f0eec537fc84-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.23892.515" />
       </set>
     </attachedChunks>
   </component>
@@ -77,13 +94,26 @@
       <updated>1755696053128</updated>
       <workItem from="1756256968699" duration="124000" />
       <workItem from="1756257094779" duration="7794000" />
+      <workItem from="1756339409333" duration="4651000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/sistema_aulas_faculdade_desenvolvedor_I$atividade.coverage" NAME="atividade Coverage Results" MODIFIED="1756257113816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web_system/aula/models" />
+    <SUITE FILE_PATH="coverage/sistema_aulas_faculdade_desenvolvedor_I$apps.coverage" NAME="apps Coverage Results" MODIFIED="1756339435436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web_system/aula" />
   </component>
 </project>

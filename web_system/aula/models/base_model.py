@@ -1,6 +1,6 @@
 from django.db import models
 
-class baseModel(models.Model):
+class BaseModel(models.Model):
 
     # atributos da minha classe
     class Meta:
