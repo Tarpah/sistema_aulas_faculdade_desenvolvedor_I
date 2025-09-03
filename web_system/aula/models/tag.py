@@ -1,10 +1,13 @@
-
-
 from .base_model import BaseModel
 from django.db import models
 from ..enumerate.genero import Genero
+from ..validators.funcoes import validate_par
 
 class Tag(BaseModel):
+    cod = models.CharField(max_length=10,
+                           validators=[MinLenghtValidator(10)],
+                            CodValidator('4444444444', validate_par()), blank=True)
+
     name = models.CharField(max_length=255, unique=True)
     genero = models.CharField(max_length=20,
                               choices=Genero,
