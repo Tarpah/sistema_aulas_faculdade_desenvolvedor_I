@@ -1,7 +1,8 @@
 from .base_model import BaseModel
 from django.db import models
 from ..validators.funcoes import validate_par
-from ..validators.cod import CodValidator
+from ..validators import CodValidator
+from django.contrib import admin
 
 class Atividade(BaseModel):
     nome = models.CharField('Nome', max_length=100)
@@ -25,3 +26,9 @@ class Atividade(BaseModel):
 
     def __str__(self):
         return f'{self.id} - {self.nome}'
+
+class AtividadeAdmin(admin.ModelAdmin):  # <- Herda de ModelAdmin
+    list_display = ('nome', 'valor', 'update_at')
+    readonly_fields = ('create_at', 'update_at')
+    search_fields = ('nome',)
+    list_filter = ('nome',)

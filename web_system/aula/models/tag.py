@@ -1,12 +1,20 @@
 from .base_model import BaseModel
 from django.db import models
 from ..enumerate.genero import Genero
-from ..validators.funcoes import validate_par
+from django.core.exceptions import ValidationError
+from django.core.validators import *
+from django.core.validators import MinLengthValidator
+from ..validators import CodValidator
+from ..validators import validate_par
+from django.contrib import admin
+import random
+import string
 
 class Tag(BaseModel):
     cod = models.CharField(max_length=10,
-                           validators=[MinLenghtValidator(10)],
-                            CodValidator('4444444444', validate_par()), blank=True)
+                           validators=[MinLengthValidator(10),
+                           CodValidator("4444444444")],
+                           blank=True)
 
     name = models.CharField(max_length=255, unique=True)
     genero = models.CharField(max_length=20,
@@ -23,3 +31,28 @@ class TagAdmin(admin.ModelAdmin):
     readonly_fields = ('create_at', 'update_at')
     search_fields = ('name',)
     list_filter = ('update_at',)
+
+
+def save(self, *args, **kargs): # esse código gera no campo 'cod' um valor aleatorio caso o campo fique vazio
+    if self.cod is None or self.cod == '':
+        letters = string.ascii_letters + string.digits
+        self.cod = ''.join(random.choice(letters) for i in range(10))
+    super().save(*args, **kargs)
+
+def clean(self):
+    # texto que já estava no código =  pode ser realizada aqui novas validações customizadas e
+    if not isinstance(self.name, str):
+        raise ValidationError({
+            "name": 'Nome informado é do tipo errado'},
+            code='error001')
+    elif self.name == 'Teste':
+        raise ValidationError(
+            {"name":'Não é possivel salvar testes!'},
+             code="error002")
+    elif self.cod == "2222222222" and self.name == "IFRS Restinga":
+        raise ValidationError(
+            {"name": 'Combinação de nome e código errada',
+            "cod":'Combinação de nome e código errada!'},
+            code="error0101"
+        )
+
