@@ -1,4 +1,4 @@
-def validate_parfrom django.core.exceptions import ValidationError
+from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
 # o valor nesse contexto é o campo lá no form.
@@ -13,4 +13,4 @@ def validate_par(valor):
     except ValueError:
         pass
 
-# _ <- internacionalização
+# '_' internacionalização
