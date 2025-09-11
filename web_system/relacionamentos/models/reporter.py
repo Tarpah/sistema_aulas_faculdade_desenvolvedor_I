@@ -4,6 +4,7 @@ from django.db import models
 from django.core.validators import MinLengthValidator
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
+from .reporter_manager import ReporterManager
 
 
 class Reporter(BaseModel):
@@ -17,7 +18,7 @@ class Reporter(BaseModel):
                            help_text=_("Insert your CPF Number without dots"),)
     email = models.EmailField(max_length=255, unique=True, verbose_name="Email")
 
-    #objects = ReporterManager()
+    objects = ReporterManager()
 
     def __str__(self):
         return self.name

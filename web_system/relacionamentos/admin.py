@@ -1,4 +1,4 @@
 from django.contrib import admin
-from relacionamentos.models import Person, Reporter, Magazine, Article
+from relacionamentos.models import Person, Reporter, Magazine, Article, Paper,  Publication
 
-admin.site.register((Person, Reporter, Magazine, Article))
+admin.site.register((Person, Reporter, Magazine, Article, Paper, Publication))
