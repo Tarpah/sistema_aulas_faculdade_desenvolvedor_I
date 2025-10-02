@@ -1,0 +1,1 @@
+# é o mesmo do reporter_manager só não tem busca por código

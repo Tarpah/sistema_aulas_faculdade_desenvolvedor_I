@@ -5,6 +5,6 @@ import relacionamentos.views as views_funcoes
 
 urlpatterns = [
     path('relacionamentos/', include('relacionamentos.urls'),),
+    path('aula/', include('aula.urls'),),
     path('admin/', admin.site.urls),
 ]
-
