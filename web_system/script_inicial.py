@@ -20,6 +20,12 @@ User = get_user_model()
 
 
 # Exemplo de consulta e de impressão do resultado
+def listar_registros():
+    exemplos = Reporter.objects.all()
+    return exemplos
+
+
+
 def main():
     try:
         reporter = Reporter(name='Fernando', cpf='18640053006', email='fernando@gmail.com')
@@ -39,6 +45,26 @@ def consultar():
     for reporters in lista_reporters_exata:
         print(f'Nome do reporter:{reporters.name}  ID:{reporters.id}')
 
+def __main__():
+    flag = True
+    while flag:
+        print("\n== MENU ===")
+        print("1. Criar um registro")
+        print("2. Listar registros")
+        print("0. Sair")
+
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            consultar()
+
+        if opcao == "2":
+            listar_registros()
+
+        elif opcao == "0":
+            print("Saindo do script...")
+            flag = False
+    print("Fim do script.")
 
 
 consultar()
@@ -46,5 +72,7 @@ consultar()
 print('teste')
 
 
+if __name__ == "__main__":
+    __main__()
 
 
