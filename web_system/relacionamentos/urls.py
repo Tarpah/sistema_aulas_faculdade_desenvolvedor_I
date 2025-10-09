@@ -9,7 +9,7 @@ app_name = 'relacionamentos'
 
 
 urlpatterns = [
-    path('exemplo/classe', NomeView.as_view(), name='exemplo'),
+    path('exemplo/classe/<str:name>', NomeView.as_view(), name='exemplo'),
     path('classe/teste', PrimeiraView.as_view(), name='primeira_view_classe'),
     path('funcao/exercicio/calculos/<int:x>/<int:y>', views_funcoes.calculos_basicos, name='calculos_basicos'),
     path('funcao/exercicio/<str:name>', views_funcoes.criptografia_senha, name='criptografia_senha'),
