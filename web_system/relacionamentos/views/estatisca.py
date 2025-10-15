@@ -1,7 +1,6 @@
 from django.http import JsonResponse
-from django.shortcuts import HttpResponse
+from django.shortcuts import HttpResponse, render
 from django.core import serializers
-from django.template.defaultfilters import upper
 
 from relacionamentos.models.reporter import Reporter
 
@@ -45,8 +44,13 @@ def criptografia_senha(request, name):
     return HttpResponse(resposta_final)
 
 def primeira_view(request):
-    mensagem = "Bom dia DEV I"
-    return HttpResponse(mensagem, status=200)
+    contexto = {
+        'mensagem': 'Bom dia DEV I',
+    }
+    #mensagem = "Bom dia DEV I"
+    #return HttpResponse(mensagem, status=200)
+    return render(request, 'primeira.html', context=contexto)
+
 
 # exemplo do sor Model.objects.filter(xxx__icontains = name)
 def nome(request, name): # serve para fazer chamadas como scripts ou models
