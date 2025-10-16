@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if lista %}
+        <h1>Lista de Exemplos</h1>
+    {% else %}
+        <h1>Nenhum exemplo cadastrado!</h1>
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+
+{% if lista %}
+    <table class="table table-hover">
+        <thead>
+            <th>#</th>
+            <th>CPF</th>
+            <th>Nome</th>
+            <th>Ações Funções</th>
+            <th>Ações Classes</th>
+        </thead>
+        <tbody>
+
+        {% for reporter in lista %}
+            <tr>
+                <td>{{ reporter.id }}</td>
+                <td>{{ reporter.cpf }}</td>
+                <td>{{ reporter.name }}</td>
+            <td>
+
+                    <div>
+                        <a class="btn btn-outline-secondary btn-lg" role="button"
+                           data-bs-toggle="tooltip" data-bs-placement="top"
+                           title="Detalhar com Funções"
+                           href="{% url 'relacionamentos:exemplo_function_read' reporter.id %}">
+                            <i class="bi bi-card-list"></i> Detalhar </a>
+                    </div>
+
+                    <div>
+                        <a class="btn btn-outline-secondary btn-lg" role="button"
+                           data-bs-toggle="tooltip" data-bs-placement="top"
+                           title="Detetar com funções"
+                           href="{% url 'relacionamentos:reporter_function_delete' reporter.id %}">
+                            <i class="bi bi-card-list"></i> Excluir </a>
+                    </div>
+            </td>
+
+            <td>
+                <div>
+                    Botões de classe aqui
+                </div>
+            </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+{% endblock content %}

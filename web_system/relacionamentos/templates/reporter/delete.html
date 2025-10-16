@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+  {% block title %}
+    <h1> {{ reporter|capfirst }}</h1>
+  {% endblock title %}
+  {% block content %}
+      <div class="content" >
+        <div class="row">
+          <strong>Código:</strong> <p> {{ reporter.id }} </p>
+          <strong>Nome:</strong> <p> {{ reporter.name }} </p>
+            {{ reporter.name|capfirst }}</p>
+        </div>
+      </div>
+
+      <div>
+        <a class="btn btn-outline-light btn-lg" role="button"
+           href="{% url 'relacionamentos:reporter_function_delete' reporter.id %}"> <i
+                class="bi bi-arrow-left"></i> Deletar </a>
+      </div>
+
+  {% endblock content %}

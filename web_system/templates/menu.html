@@ -17,15 +17,32 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            URLs Estáticas
           </a>
           <ul class="dropdown-menu">
+            Function-based view
             <li><a class="dropdown-item" href="{% url 'relacionamentos:primeira_view' %}">Primeira View</a></li>
-            <li><a class="dropdown-item" href="{% url 'relacionamentos:saudacao_view' %}">Saudação</a></li>
+            <li><a class="dropdown-item" href="{% url 'relacionamentos:saudacao_view_classe' %}">Saudação</a></li>
+            <li><a class="dropdown-item" href="#">Busca com Nome</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            Class-based view
+            <li><a class="dropdown-item" href="{% url 'relacionamentos:primeira_view_classe' %}">Primeira View</a></li>
+            <li><a class="dropdown-item" href="{% url 'relacionamentos:saudacao_view_classe' %}">Saudação</a></li>
+            <li><a class="dropdown-item" href="#">Busca com Nome - HTTP</a></li>
+            <li><a class="dropdown-item" href="#">Busca com Nome - JSON</a></li>
           </ul>
         </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Relacionamentos
+          </a>
+
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'relacionamentos:exemplo_function_list' %}">Lista de Reporters</a></li>
+          </ul>
+        </li>
+
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
