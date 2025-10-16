@@ -51,6 +51,8 @@ def primeira_view(request):
     #return HttpResponse(mensagem, status=200)
     return render(request, 'primeira.html', context=contexto)
 
+def home_view(request):
+    return render(request, 'home.html')
 
 # exemplo do sor Model.objects.filter(xxx__icontains = name)
 def nome(request, name): # serve para fazer chamadas como scripts ou models

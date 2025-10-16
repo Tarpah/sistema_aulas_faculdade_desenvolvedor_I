@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.views import View
 from datetime import datetime
 
@@ -13,6 +14,7 @@ class SaudacaoView(View):
         elif 0 < agora.hour <= 6:
             mensagem = 'Boa madrugada'
 
-        completo =  f'<html><body><h1>{mensagem.capitalize()}</h1> visitante</body>'+ \
-                    f'<br />{agora}</h1><body></body></html>'
-        return HttpResponse(completo)
+        completo = {'mensagem' : mensagem, 'horario': agora}
+
+
+        return render(request, 'saudacao.html', context=completo)
