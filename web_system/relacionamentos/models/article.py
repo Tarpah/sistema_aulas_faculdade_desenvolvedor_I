@@ -12,7 +12,7 @@ class Article(BaseModel):
                               verbose_name='Titulo')
     data_publicacao = models.DateField(verbose_name='Data de publicação')
     reporter = models.ForeignKey(Reporter,
-                                 on_delete=models.RESTRICT,
+                                 on_delete=models.CASCADE,
                                  verbose_name='Reporter')
     magazines = models.ManyToManyField(Magazine)
 
