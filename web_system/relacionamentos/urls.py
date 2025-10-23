@@ -1,12 +1,17 @@
 from django.urls import path, include
 import relacionamentos.views.estatisca as views_funcoes
 from relacionamentos.views import PrimeiraView, SaudacaoView, NomeView
-from relacionamentos.views.reporter import reporter_list, reporter_list_details, delete, gerar_cpf
+from relacionamentos.views.reporter import reporter_list, reporter_list_details, delete, gerar_cpf, create, update
+from relacionamentos.views.reporter_classe import ReporterListClasse, ReportListDetailsClasse
 
 # mesma coisa que namespace
 app_name = 'relacionamentos'
 
 urlpatterns = [
+    path('reporter/classe/read/<int:pk>', ReportListDetailsClasse.as_view(), name='exemplo_classe_read'),
+    path('reporter/classe/', ReporterListClasse.as_view(), name='exemplo_function_read'),
+    path('reporter/funcao/update/<int:pk>', update, name='reporter_function_update'),
+    path('reporter/funcao/create', create , name='reporter_function_create'),
     path('reporter/funcao/gerar_cpf/<int:pk>', gerar_cpf, name='gerar_cpf'),
     path('reporter/funcao/delete/<int:pk>', delete, name='reporter_function_delete'),
     path('reporter/funcao/read/<int:pk>', reporter_list_details, name='exemplo_function_read'),

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+    <h1>Editar Reporter</h1>
+
+{% endblock title %}
+
+{% block content %}
+<form
+        id="reporter"
+        action="{% url 'relacionamentos:reporter_function_update' objeto_reporter.id %}"
+        method="post">
+
+    {% csrf_token %}
+
+    {% for field in form %}
+        <div class="mb-3">
+            {{ field.label_tag }} {{ field }}
+            {% if field.help_text %}
+                <div class="form-text"> {{ field.help_text|safe }} </div>
+            {% endif %}
+            <div class="invalid-feedback"> {{ field.errors }} </div>
+        </div>
+    {% endfor %}
+
+<!-- {{ form.as_p }} -->
+
+    <button type="submit" class="btn btn-outline-success btn-lg"
+                      form="reporter" value="Salvar"> <i class="bi bi-floppy"> </i>
+              Salvar</button>
+
+    <button type="reset" name="reset" class="btn btn-outline-danger btn-lg"
+                      form="reporter" value="Reset"> <i class="bi bi-arrow-clockwise">
+        </i> Limpar</button>
+
+    <a class="btn btn-outline-light btn-lg " role="button"
+       href="{% url 'relacionamentos:exemplo_function_list' %}">
+        <i class="bi bi-arrow-left"></i>  </a>
+</form>
+{% endblock content %}

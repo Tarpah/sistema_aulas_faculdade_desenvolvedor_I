@@ -10,6 +10,12 @@
 
 {% block content %}
 
+<a class="btn btn-outline-success btn-lg" role="button"
+                           data-bs-toggle="tooltip" data-bs-placement="top"
+                           title="gerar_cpf"
+                           href="{% url 'relacionamentos:reporter_function_create' %}">
+                            <i class="bi bi-plus-square"></i> Criar Reporter </a>
+
 {% if lista %}
     <table class="table table-hover">
         <thead>
@@ -49,14 +55,28 @@
                            data-bs-toggle="tooltip" data-bs-placement="top"
                            title="gerar_cpf"
                            href="{% url 'relacionamentos:gerar_cpf' reporter.id %}">
-                            <i class="bi bi-card-list"></i> Update CPF </a>
+                            <i class="bi bi-card-list"></i> Gerar CPF </a>
+                    </div>
+
+                    <div>
+                        <a class="btn btn-outline-secondary btn-lg" role="button"
+                           data-bs-toggle="tooltip" data-bs-placement="top"
+                           title="gerar_cpf"
+                           href="{% url 'relacionamentos:reporter_function_update' reporter.id %}">
+                            <i class="bi bi-card-list"></i> Update reporter </a>
                     </div>
 
             </td>
 
             <td>
                 <div>
-                    Botões de classe aqui
+                    <div>
+                        <a class="btn btn-outline-secondary btn-lg" role="button"
+                           data-bs-toggle="tooltip" data-bs-placement="top"
+                           title="Detalhar com Funções"
+                           href="{% url 'relacionamentos:exemplo_classe_read' reporter.id %}">
+                            <i class="bi bi-card-list"></i> Detalhar </a>
+                    </div>
                 </div>
             </td>
 

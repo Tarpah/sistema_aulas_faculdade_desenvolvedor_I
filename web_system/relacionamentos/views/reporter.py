@@ -2,6 +2,8 @@ import random
 import string
 
 from django.shortcuts import render, get_object_or_404, redirect
+
+from relacionamentos.forms import ReporterForm
 from relacionamentos.models import Reporter
 
 
@@ -51,3 +53,31 @@ def gerar_cpf(request, pk):
     except:
         print("Erro gerando CPF")
         return redirect('relacionamentos:exemplo_function_list')
+
+def create(request):
+    if request.method == 'POST':
+        form = ReporterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('relacionamentos:exemplo_function_list')
+    else:
+        form = ReporterForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'reporter/create_simple.html', context)
+
+def update(request, pk):
+    objeto_reporter = get_object_or_404(Reporter, pk=pk)
+    if request.method == 'POST':
+        form = ReporterForm(request.POST, instance=objeto_reporter)
+        if form.is_valid():
+            form.save()
+            return redirect('relacionamentos:exemplo_function_list')
+    else:
+        form = ReporterForm(instance=objeto_reporter)
+    context = {
+        'form': form,
+        'objeto_reporter': objeto_reporter,
+    }
+    return render(request, 'reporter/update.html', context)
