@@ -12,9 +12,16 @@
 
 <a class="btn btn-outline-success btn-lg" role="button"
                            data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="gerar_cpf"
+                           title="Criar Reporter pela Funcao"
                            href="{% url 'relacionamentos:reporter_function_create' %}">
-                            <i class="bi bi-plus-square"></i> Criar Reporter </a>
+                            <i class="bi bi-plus-square"></i> Criar Reporter Function</a>
+
+<a class="btn btn-outline-success btn-lg" role="button"
+                           data-bs-toggle="tooltip" data-bs-placement="top"
+                           title="Criar Reporter pela Classe"
+                           href="{% url 'relacionamentos:reporter_class_create' %}">
+                            <i class="bi bi-plus-square"></i> Criar Reporter Classe </a>
+
 
 {% if lista %}
     <table class="table table-hover">
@@ -78,7 +85,32 @@
                             <i class="bi bi-card-list"></i> Detalhar </a>
                     </div>
                 </div>
+
+                <div>
+                    <div>
+                        <a class="btn btn-outline-secondary btn-lg" role="button"
+                           data-bs-toggle="tooltip" data-bs-placement="top"
+                           title="Detalhar com Funções"
+                           href="{% url 'relacionamentos:reporter_class_delete' reporter.id %}">
+                            <i class="bi bi-card-list"></i> Deletar </a>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <a class="btn btn-outline-secondary btn-lg" role="button"
+                           data-bs-toggle="tooltip" data-bs-placement="top"
+                           title="Detalhar com Funções"
+                           href="{% url 'relacionamentos:gerar_cpf_classe' reporter.id %}">
+                            <i class="bi bi-card-list"></i> Gerar CPF </a>
+                    </div>
+                </div>
+
             </td>
+
+
+
+
 
             </tr>
         {% endfor %}
