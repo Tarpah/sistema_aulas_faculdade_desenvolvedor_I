@@ -7,7 +7,7 @@ from relacionamentos.forms import ReporterForm
 from relacionamentos.models import Reporter
 
 
-def reporter_list(request):
+def function_reporter_list(request):
     query_set_reporters = Reporter.objects.all()
 
     lista_reporters = {
@@ -24,16 +24,16 @@ def reporter_list_details(request, pk):
     return render(request, 'reporter/read.html', context)
 
 def delete(request, pk):
-    exemplo = get_object_or_404(Reporter, pk=pk)
+    objeto_reporter = get_object_or_404(Reporter, pk=pk)
     try:
         if request.method == 'POST':
             v_reporter_id = request.POST.get("reporter_id", None)
             if int(v_reporter_id) == pk:
-                exemplo.delete()
-                return redirect('relacionamentos:exemplo_function_list')
+                objeto_reporter.delete()
+                return redirect('relacionamentos:reporter_function_list')
         else:
             context = {
-                'reporter': exemplo,
+                'reporter': objeto_reporter,
             }
             return render(request, 'reporter/delete.html', context)
 
@@ -42,24 +42,32 @@ def delete(request, pk):
         print(e)
         return render(request, "reporter/list.html", context)
 
-def gerar_cpf(request, pk):
-    exemplo = get_object_or_404(Reporter, pk=pk)
+def gerar_cpf_function(request, pk):
+    objeto_reporter = get_object_or_404(Reporter, pk=pk)
     try:
-        letras = string.ascii_letters + string.digits
-        exemplo.cpf = ''.join(random.choice(letras) for i in range(10))
-        exemplo.save()
-        return redirect('relacionamentos:gerar_cpf')
+        digitos = [str(random.randint(0, 9)) for _ in range(11)]
+        cpf_formatado = (
+            f"{digitos[0]}{digitos[1]}{digitos[2]}."
+            f"{digitos[3]}{digitos[4]}{digitos[5]}."
+            f"{digitos[6]}{digitos[7]}{digitos[8]}-"
+            f"{digitos[9]}{digitos[10]}"
+        )
+
+        objeto_reporter.cpf = cpf_formatado
+        objeto_reporter.save()
+
+        return redirect('relacionamentos:gerar_cpf_function')
 
     except:
         print("Erro gerando CPF")
-        return redirect('relacionamentos:exemplo_function_list')
+        return redirect('relacionamentos:reporter_function_list')
 
 def create(request):
     if request.method == 'POST':
         form = ReporterForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('relacionamentos:exemplo_function_list')
+            return redirect('relacionamentos:reporter_function_list')
     else:
         form = ReporterForm()
     context = {
@@ -73,7 +81,7 @@ def update(request, pk):
         form = ReporterForm(request.POST, instance=objeto_reporter)
         if form.is_valid():
             form.save()
-            return redirect('relacionamentos:exemplo_function_list')
+            return redirect('relacionamentos:reporter_function_list')
     else:
         form = ReporterForm(instance=objeto_reporter)
     context = {

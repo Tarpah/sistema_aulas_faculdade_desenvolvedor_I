@@ -15,7 +15,7 @@ class Paper(BaseModel):
                                  on_delete=models.CASCADE,
                                  verbose_name='Reporter')
 
-    magazines = models.ManyToManyField(Magazine, null=True, blank=True,
+    magazines = models.ManyToManyField(Magazine, blank=True,
                                        through="Publication",
                                        through_fields=("paper", "magazine"))
 

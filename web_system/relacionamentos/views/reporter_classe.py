@@ -17,7 +17,7 @@ class ReporterListClasse(View):
 
         return render(request, 'reporter/list.html', lista_reporters)
 
-class ReportListDetailsClasse(View):
+class ReporterListDetailsClasse(View):
 
     @staticmethod
     def get(request, pk):
@@ -27,20 +27,28 @@ class ReportListDetailsClasse(View):
         }
         return render(request, 'reporter/read.html', context)
 
-class ReportGerarCPF(View):
+class ReporterGerarCPF(View):
 
     @staticmethod
     def get(request, pk):
-        exemplo = get_object_or_404(Reporter, pk=pk)
+        objeto_reporter = get_object_or_404(Reporter, pk=pk)
         try:
-            letras = string.ascii_letters + string.digits
-            exemplo.cpf = ''.join(random.choice(letras) for i in range(10))
-            exemplo.save()
+            digitos = [str(random.randint(0, 9)) for _ in range(11)]
+            cpf_formatado = (
+                f"{digitos[0]}{digitos[1]}{digitos[2]}."
+                f"{digitos[3]}{digitos[4]}{digitos[5]}."
+                f"{digitos[6]}{digitos[7]}{digitos[8]}-"
+                f"{digitos[9]}{digitos[10]}"
+            )
+
+            objeto_reporter.cpf = cpf_formatado
+            objeto_reporter.save()
+
             return redirect('relacionamentos:gerar_cpf_classe')
 
         except:
             print("Erro gerando CPF")
-            return redirect('relacionamentos:exemplo_function_list')
+            return redirect('relacionamentos:reporter_function_list')
 
 class ReporterDeleteView(View):
 
@@ -72,7 +80,7 @@ class ReporterCreateView(View):
         form = ReporterForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('relacionamentos:exemplo_function_list')
+            return redirect('relacionamentos:reporter_function_list')
 
         context = {
             'form': form

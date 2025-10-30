@@ -12,20 +12,18 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'relacionamentos:home_view' %}">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             URLs Estáticas
           </a>
           <ul class="dropdown-menu">
-            Function-based view
+            <li class="dropdown-item"> <h4><b>Function-based view</b></h4>  </li>
             <li><a class="dropdown-item" href="{% url 'relacionamentos:primeira_view' %}">Primeira View</a></li>
             <li><a class="dropdown-item" href="{% url 'relacionamentos:saudacao_view_classe' %}">Saudação</a></li>
             <li><a class="dropdown-item" href="#">Busca com Nome</a></li>
             <li><hr class="dropdown-divider"></li>
-            Class-based view
+            <li class="dropdown-item"> <h4><b>Class-based view</b></h4>  </li>
+
             <li><a class="dropdown-item" href="{% url 'relacionamentos:primeira_view_classe' %}">Primeira View</a></li>
             <li><a class="dropdown-item" href="{% url 'relacionamentos:saudacao_view_classe' %}">Saudação</a></li>
             <li><a class="dropdown-item" href="#">Busca com Nome - HTTP</a></li>
@@ -39,7 +37,7 @@
           </a>
 
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{% url 'relacionamentos:exemplo_function_list' %}">Lista de Reporters</a></li>
+            <li><a class="dropdown-item" href="{% url 'relacionamentos:reporter_function_list' %}">Lista de Reporters</a></li>
           </ul>
         </li>
 

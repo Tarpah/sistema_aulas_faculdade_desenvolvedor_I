@@ -42,35 +42,36 @@
             <td>
 
                     <div>
-                        <a class="btn btn-outline-secondary btn-lg" role="button"
+                        <a class="btn btn-info" role="button"
                            data-bs-toggle="tooltip" data-bs-placement="top"
                            title="Detalhar com Funções"
-                           href="{% url 'relacionamentos:exemplo_function_read' reporter.id %}">
-                            <i class="bi bi-card-list"></i> Detalhar </a>
+                           href="{% url 'relacionamentos:reporter_function_read' reporter.id %}">
+                            <i class="bi bi-info-circle-fill"></i> Detalhar </a>
+
                     </div>
 
                     <div>
-                        <a class="btn btn-outline-secondary btn-lg" role="button"
+                        <a class="btn btn-danger" role="button"
                            data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="Detetar com funções"
+                           title="Detetar com Funções"
                            href="{% url 'relacionamentos:reporter_function_delete' reporter.id %}">
-                            <i class="bi bi-card-list"></i> Excluir </a>
+                            <i class="bi bi-fire"></i> Excluir </a>
                     </div>
 
                     <div>
-                        <a class="btn btn-outline-secondary btn-lg" role="button"
+                        <a class="btn btn-warning" role="button"
                            data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="gerar_cpf"
-                           href="{% url 'relacionamentos:gerar_cpf' reporter.id %}">
-                            <i class="bi bi-card-list"></i> Gerar CPF </a>
+                           title="Gerar CPF com Funções"
+                           href="{% url 'relacionamentos:gerar_cpf_function' reporter.id %}">
+                            <i class="bi bi-receipt-cutoff"></i> Gerar CPF </a>
                     </div>
 
                     <div>
-                        <a class="btn btn-outline-secondary btn-lg" role="button"
+                        <a class="btn btn-primary" role="button"
                            data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="gerar_cpf"
+                           title="Atualizar Reporter com Funções"
                            href="{% url 'relacionamentos:reporter_function_update' reporter.id %}">
-                            <i class="bi bi-card-list"></i> Update reporter </a>
+                            <i class="bi bi-arrow-clockwise"></i> Update reporter </a>
                     </div>
 
             </td>
@@ -78,31 +79,31 @@
             <td>
                 <div>
                     <div>
-                        <a class="btn btn-outline-secondary btn-lg" role="button"
+                        <a class="btn btn-info" role="button"
                            data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="Detalhar com Funções"
-                           href="{% url 'relacionamentos:exemplo_classe_read' reporter.id %}">
-                            <i class="bi bi-card-list"></i> Detalhar </a>
+                           title="Detalhar Reporter com Classe"
+                           href="{% url 'relacionamentos:reporter_classe_read' reporter.id %}">
+                            <i class="bi bi-fire"></i> Detalhar </a>
                     </div>
                 </div>
 
                 <div>
                     <div>
-                        <a class="btn btn-outline-secondary btn-lg" role="button"
+                        <a class="btn btn-danger" role="button"
                            data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="Detalhar com Funções"
+                           title="Excluir Reporter com Classe"
                            href="{% url 'relacionamentos:reporter_class_delete' reporter.id %}">
-                            <i class="bi bi-card-list"></i> Deletar </a>
+                            <i class="bi bi-card-list"></i> Excluir </a>
                     </div>
                 </div>
 
                 <div>
                     <div>
-                        <a class="btn btn-outline-secondary btn-lg" role="button"
+                        <a class="btn btn-warning" role="button"
                            data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="Detalhar com Funções"
+                           title="Gerar CPF com Classe Reporter"
                            href="{% url 'relacionamentos:gerar_cpf_classe' reporter.id %}">
-                            <i class="bi bi-card-list"></i> Gerar CPF </a>
+                            <i class="bi bi-receipt-cutoff"></i> Gerar CPF </a>
                     </div>
                 </div>
 

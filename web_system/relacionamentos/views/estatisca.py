@@ -47,6 +47,7 @@ def primeira_view(request):
     contexto = {
         'mensagem': 'Bom dia DEV I',
     }
+
     #mensagem = "Bom dia DEV I"
     #return HttpResponse(mensagem, status=200)
     return render(request, 'primeira.html', context=contexto)
@@ -56,6 +57,6 @@ def home_view(request):
 
 # exemplo do sor Model.objects.filter(xxx__icontains = name)
 def nome(request, name): # serve para fazer chamadas como scripts ou models
-    exemplo = Reporter.objects.find_by_nome(name)
-    objeto = serializers.serialize('python', exemplo)
+    resultado_pesquisa_sql = Reporter.objects.find_by_nome(name)
+    objeto = serializers.serialize('python', resultado_pesquisa_sql)
     return JsonResponse(objeto, safe=False)
