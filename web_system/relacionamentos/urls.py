@@ -23,6 +23,7 @@ app_name = 'relacionamentos'
 
 urlpatterns = [
 
+
     # rotas do reporter com generic
     path('reporter/generic/update/<int:pk>', ReporterUpdateViewGeneric.as_view(), name='reporter_update_generic'),
     path('reporter/generic/create/', ReporterCreateViewGeneric.as_view(), name='reporter_create_generic'),

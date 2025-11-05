@@ -5,26 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7909b89-ed82-40a2-8441-3aa175f33fe0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/aula/managers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aula/managers/perfil_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relacionamentos/managers/person_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relacionamentos/views/reporter_generic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_system/forms/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_system/forms/contact_form.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_system/views/contact.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/web_system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/web_system.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aula/models/perfil.py" beforeDir="false" afterPath="$PROJECT_DIR$/aula/models/perfil.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relacionamentos/managers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/relacionamentos/managers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relacionamentos/managers/reporter_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/relacionamentos/managers/reporter_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relacionamentos/models/person.py" beforeDir="false" afterPath="$PROJECT_DIR$/relacionamentos/models/person.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relacionamentos/models/reporter_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/relacionamentos/models/reporter_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relacionamentos/templates/reporter/create_simple.html" beforeDir="false" afterPath="$PROJECT_DIR$/relacionamentos/templates/reporter/create_simple.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relacionamentos/templates/reporter/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/relacionamentos/templates/reporter/delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relacionamentos/templates/reporter/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/relacionamentos/templates/reporter/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relacionamentos/templates/reporter/read.html" beforeDir="false" afterPath="$PROJECT_DIR$/relacionamentos/templates/reporter/read.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relacionamentos/templates/reporter/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/relacionamentos/templates/reporter/update.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/relacionamentos/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/relacionamentos/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relacionamentos/views/reporter.py" beforeDir="false" afterPath="$PROJECT_DIR$/relacionamentos/views/reporter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relacionamentos/views/reporter_classe.py" beforeDir="false" afterPath="$PROJECT_DIR$/relacionamentos/views/reporter_classe.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_system/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_system/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +42,8 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "dia__29__10__2025",
-    "last_opened_file_path": "C:/Users/Sandro/Documents/Github/sistema_aulas_faculdade_desenvolvedor_I/web_system"
+    "git-widget-placeholder": "dia__05__11__2025",
+    "last_opened_file_path": "C:/Users/Teste/Documents/github/sistema_aulas_faculdade_desenvolvedor_I/web_system"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -136,7 +124,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-7e47963ff851-f0eec537fc84-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.23892.515" />
+        <option value="bundled-python-sdk-657d8234b839-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.74" />
       </set>
     </attachedChunks>
   </component>
