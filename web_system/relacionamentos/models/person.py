@@ -1,10 +1,11 @@
-from datetime import date, timedelta
+from datetime import date
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import MinLengthValidator
 from relacionamentos.models import BaseModel
 from django.db import models
 from relacionamentos.validators.funcoes import validate_cpf
+from relacionamentos.managers import PersonManager
 
 
 class Person(BaseModel):
@@ -17,6 +18,8 @@ class Person(BaseModel):
     cpf= models.CharField(max_length=11,
                           validators=[MinLengthValidator(11), validate_cpf],
                           help_text=_("Insert your CPF Number without dots"),)
+
+    objects = PersonManager()
 
     def __str__(self):
         return self.name

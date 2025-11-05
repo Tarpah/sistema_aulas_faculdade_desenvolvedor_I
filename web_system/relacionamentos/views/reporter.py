@@ -1,13 +1,10 @@
 import random
-import string
-
 from django.shortcuts import render, get_object_or_404, redirect
-
 from relacionamentos.forms import ReporterForm
 from relacionamentos.models import Reporter
 
 
-def function_reporter_list(request):
+def reporter_list_function(request):
     query_set_reporters = Reporter.objects.all()
 
     lista_reporters = {
@@ -16,24 +13,24 @@ def function_reporter_list(request):
 
     return render(request, 'reporter/list.html', lista_reporters)
 
-def reporter_list_details(request, pk):
-    reporter = Reporter.objects.get(id=pk)
+def reporter_list_details_function(request, pk):
+    objeto_reporter = Reporter.objects.get(id=pk)
     context = {
-        'reporter': reporter,
+        'objeto_reporter': objeto_reporter,
     }
     return render(request, 'reporter/read.html', context)
 
-def delete(request, pk):
+def reporter_delete_function(request, pk):
     objeto_reporter = get_object_or_404(Reporter, pk=pk)
     try:
         if request.method == 'POST':
             v_reporter_id = request.POST.get("reporter_id", None)
             if int(v_reporter_id) == pk:
                 objeto_reporter.delete()
-                return redirect('relacionamentos:reporter_function_list')
+                return redirect('relacionamentos:reporter_list_function')
         else:
             context = {
-                'reporter': objeto_reporter,
+                'objeto_reporter': objeto_reporter,
             }
             return render(request, 'reporter/delete.html', context)
 
@@ -42,7 +39,7 @@ def delete(request, pk):
         print(e)
         return render(request, "reporter/list.html", context)
 
-def gerar_cpf_function(request, pk):
+def reporter_cpf_generator_function(request, pk):
     objeto_reporter = get_object_or_404(Reporter, pk=pk)
     try:
         digitos = [str(random.randint(0, 9)) for _ in range(11)]
@@ -56,18 +53,18 @@ def gerar_cpf_function(request, pk):
         objeto_reporter.cpf = cpf_formatado
         objeto_reporter.save()
 
-        return redirect('relacionamentos:gerar_cpf_function')
+        return redirect('relacionamentos:reporter_cpf_generator_function')
 
     except:
         print("Erro gerando CPF")
-        return redirect('relacionamentos:reporter_function_list')
+        return redirect('relacionamentos:reporter_list_function')
 
-def create(request):
+def reporter_create_function(request):
     if request.method == 'POST':
         form = ReporterForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('relacionamentos:reporter_function_list')
+            return redirect('relacionamentos:reporter_list_function')
     else:
         form = ReporterForm()
     context = {
@@ -75,13 +72,13 @@ def create(request):
     }
     return render(request, 'reporter/create_simple.html', context)
 
-def update(request, pk):
+def reporter_update_function(request, pk):
     objeto_reporter = get_object_or_404(Reporter, pk=pk)
     if request.method == 'POST':
         form = ReporterForm(request.POST, instance=objeto_reporter)
         if form.is_valid():
             form.save()
-            return redirect('relacionamentos:reporter_function_list')
+            return redirect('relacionamentos:reporter_list_function')
     else:
         form = ReporterForm(instance=objeto_reporter)
     context = {

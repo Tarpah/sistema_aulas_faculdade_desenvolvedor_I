@@ -1,11 +1,11 @@
-import string
 import random
 from django.shortcuts import render, get_object_or_404, redirect
 from relacionamentos.forms import ReporterForm
 from relacionamentos.models import Reporter
 from django.views import View
 
-class ReporterListClasse(View):
+
+class ReporterListView(View):
 
     @staticmethod
     def get(request):
@@ -17,17 +17,17 @@ class ReporterListClasse(View):
 
         return render(request, 'reporter/list.html', lista_reporters)
 
-class ReporterListDetailsClasse(View):
+class ReporterDetailsView(View):
 
     @staticmethod
     def get(request, pk):
-        reporter = Reporter.objects.get(id=pk)
+        objeto_reporter = Reporter.objects.get(id=pk)
         context = {
-            'reporter': reporter,
+            'objeto_reporter': objeto_reporter,
         }
         return render(request, 'reporter/read.html', context)
 
-class ReporterGerarCPF(View):
+class ReporterCPFGeneratorView(View):
 
     @staticmethod
     def get(request, pk):
@@ -48,23 +48,40 @@ class ReporterGerarCPF(View):
 
         except:
             print("Erro gerando CPF")
-            return redirect('relacionamentos:reporter_function_list')
+            return redirect('relacionamentos:reporter_list_class')
 
 class ReporterDeleteView(View):
 
     @staticmethod
     def get(request, pk):
-        reporter = get_object_or_404(Reporter, pk=pk)
+        objeto_reporter = get_object_or_404(Reporter, pk=pk)
+
+        context = {
+            'objeto_reporter': objeto_reporter,
+        }
+
+        return render(request, "reporter/delete.html", context)
+
+    @staticmethod
+    def post(request, pk):
+        objeto_reporter = get_object_or_404(Reporter, pk=pk)
+
         try:
-            context = {
-                'reporter': reporter,
-            }
-            return render(request, 'reporter/delete.html', context)
+            v_reporter_id = request.POST.get("reporter_id", None)
+
+            if int(v_reporter_id) == pk:
+                objeto_reporter.delete()
+                return redirect('relacionamentos:reporter_list_class')
+            else:
+                print('Recusou a deletar, pk do objeto não bate com o pk do POST')
 
         except Exception as e:
-            context = {}
             print(e)
-            return render(request, "relacionamentos:reporter_class_delete", context)
+            context = {
+                'objeto_reporter': objeto_reporter,
+            }
+            return render(request, "reporter/delete.html", context)
+        return redirect('relacionamentos:reporter_list_class')
 
 class ReporterCreateView(View):
     @staticmethod
@@ -80,10 +97,37 @@ class ReporterCreateView(View):
         form = ReporterForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('relacionamentos:reporter_function_list')
+            return redirect('relacionamentos:reporter_list_class')
 
         context = {
             'form': form
         }
+        return render(request, 'reporter/create_simple.html', context)
 
-        return render(request, 'relacionamentos/create_simple.html', context)
+class ReporterUpdateView(View):
+
+    @staticmethod
+    def get(request, pk):
+        objeto_reporter = get_object_or_404(Reporter, pk=pk)
+        form = ReporterForm(instance=objeto_reporter)
+        context = {
+            'form': form,
+            'objeto_reporter': objeto_reporter,
+        }
+
+        return render(request, 'reporter/update.html', context)
+
+    @staticmethod
+    def post(request, pk):
+        objeto_reporter = get_object_or_404(Reporter, pk=pk)
+        form = ReporterForm(request.POST, instance=objeto_reporter)
+
+        if form.is_valid():
+            form.save()
+            return redirect('relacionamentos:reporter_list_class')
+
+        context = {
+            'form': form,
+            'objeto_reporter': objeto_reporter,
+        }
+        return render(request, 'reporter/update.html', context)

@@ -6,21 +6,22 @@
 
 {% block content %}
 <form
-        id="reporter" action="{% url 'relacionamentos:reporter_function_create' %}"
+        id="objeto_reporter" action="{% url 'relacionamentos:reporter_create_class' %}"
         method="post">
 
     {% csrf_token %}
     {{ form.as_p }}
+
     <button type="submit" class="btn btn-outline-success btn-lg"
-                      form="reporter" value="Salvar"> <i class="bi bi-floppy"> </i>
+                      form="objeto_reporter" value="Salvar"> <i class="bi bi-floppy"> </i>
               Salvar</button>
 
     <button type="reset" name="reset" class="btn btn-outline-danger btn-lg"
-                      form="reporter" value="Reset"> <i class="bi bi-arrow-clockwise">
+                      form="objeto_reporter" value="Reset"> <i class="bi bi-arrow-clockwise">
         </i> Limpar</button>
 
     <a class="btn btn-outline-light btn-lg " role="button"
-       href="{% url 'relacionamentos:reporter_function_list' %}">
+       href="{% url 'relacionamentos:reporter_list_generic' %}">
         <i class="bi bi-arrow-left"></i>  </a>
 </form>
 {% endblock content %}

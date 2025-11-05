@@ -1,34 +1,34 @@
 {% extends 'base.html' %}
   {% block title %}
-    <h1> {{ reporter|capfirst }}</h1>
+    <h1> {{ objeto_reporter|capfirst }}</h1>
   {% endblock title %}
   {% block content %}
       <div class="content" >
         <div class="row">
-          <strong>Código:</strong> <p> {{ reporter.id }} </p>
-          <strong>Nome:</strong> <p> {{ reporter.name }} </p>
-            {{ reporter.name|capfirst }}</p>
+          <strong>Código:</strong> <p> {{ objeto_reporter.id }} </p>
+          <strong>Nome:</strong> <p> {{ objeto_reporter.name }} </p>
+            {{ objeto_reporter.name|capfirst }} </p>
         </div>
       </div>
 
       <div>
-          <h3>Esta ação é irreversivel deletar os dados acima?</h3>
+          <h3>Esta ação é irreversível deletar os dados acima?</h3>
 
-          <form id="reporter"
-            action="{% url 'relacionamentos:reporter_function_delete' reporter.id %}"
+          <form id="objeto_reporter"
+            action="{% url 'relacionamentos:reporter_delete_generic' objeto_reporter.id %}"
             method="post">
+
               {% csrf_token %}
 
-
               <input type="hidden" id="reporter_id" name="reporter_id"
-                    value="{{ reporter.id }}">
+                    value="{{ objeto_reporter.id }}">
               <button type="submit" class="btn btn-outline-danger btn-lg"
-                      form="reporter" value="Deletar"> <i class="bi bi-trash3"> </i>
+                      form="objeto_reporter" value="Deletar"> <i class="bi bi-trash3"> </i>
               Sim, Deletar</button>
 
               <a class="btn btn-outline-light btn-lg" role="button"
 
-           href="{% url 'relacionamentos:reporter_function_list'%}"> <i
+           href="{% url 'relacionamentos:reporter_list_generic' %}"> <i
                 class="bi bi-arrow-left"></i> Voltar </a>
 
           </form>

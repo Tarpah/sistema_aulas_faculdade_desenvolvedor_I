@@ -1,5 +1,5 @@
 from django.db.models import QuerySet
-from relacionamentos.managers.base_manager import BaseManager
+from relacionamentos.managers import BaseManager
 from datetime import date
 
 

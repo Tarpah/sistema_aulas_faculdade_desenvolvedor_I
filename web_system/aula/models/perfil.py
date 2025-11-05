@@ -1,7 +1,6 @@
-from random import choices
-
 from ..enumerate import Genero
 from . import BaseModel
+from aula.managers import PerfilManager
 from django.db import models
 
 class Perfil(BaseModel):
@@ -14,13 +13,7 @@ class Perfil(BaseModel):
                               choices=Genero,
                               default=Genero.NOT_SPECIFIED)
 
-
-    # Data_Nascimento: Date
-    # bio = String(255)
-    # passaporte: String{10}
-    # genero: Genero(classe)
-    # cidade: String(255)
-    # pais: String(60)
+    objects = PerfilManager()
 
     def __str__(self):
-        return f'{self.id} - {self.passaporte}'
+        return f'{self.pk} - {self.passaporte}'
