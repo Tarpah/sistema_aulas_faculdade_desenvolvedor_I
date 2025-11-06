@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}
+  <h1>Mensagem</h1>
+{% endblock title %}
+{% block content %}
+    <h3>Obrigado pela sua mensagem</h3>
+    <br />
+    <div class="alert alert-sucess" role="alert">
+        A mensagem foi enviada conforme segue.
+    </div>
+
+    {% for field in form %}
+      <p><strong> {{ field.label }}: </strong> {{ field.value }}</p>
+    {% endfor %}
+    <br />
+    <p>A mensagem foi enviada para:</p>
+    {% for recipient in recipients %}
+      <p> <strong> {{ recipient}} </strong> </p>
+    {% endfor %}
+{% endblock content %}

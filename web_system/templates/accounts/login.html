@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+    <h1></h1>
+{% endblock title %}
+{% block content %}
+    <form id="login" action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div  class="mb-3">
+                {{ field.label_tag }}
+                    {{ field }}
+                {% if field.help_text %}
+                    <div class="form-text"> {{ field.help_text|safe }} </div>
+                {% endif %}
+                <div class="invalid-feedback"> {{ field.errors }} </div>
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-outline-primary btn-lg"
+                form="login" value="login"><i class="bi bi-box-arrow-in-right">
+        </i> Login </button>
+        <input type="hidden" name="next" value="{{ next }}">
+            <a class="btn btn-outline-warning btn-lg" role="button"
+            href="{% url 'password_reset' %}"><i class="bi bi-shield-exclamation">
+            </i> Esqueci minha senha</a>
+        </form>
+        <br>
+{% endblock content %}

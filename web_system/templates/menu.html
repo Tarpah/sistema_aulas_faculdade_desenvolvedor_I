@@ -29,6 +29,7 @@
             <li><a class="dropdown-item" href="#">Busca com Nome - HTTP</a></li>
             <li><a class="dropdown-item" href="#">Busca com Nome - JSON</a></li>
           </ul>
+
         </li>
 
         <li class="nav-item dropdown">
@@ -41,12 +42,21 @@
           </ul>
         </li>
 
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'function_contato' %}">Enviar Email</a>
+      </li>
+
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+
+
+
     </div>
+
+
   </div>
 </nav>
 {% endblock menu %}
