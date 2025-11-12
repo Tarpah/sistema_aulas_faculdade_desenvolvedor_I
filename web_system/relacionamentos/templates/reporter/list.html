@@ -10,164 +10,189 @@
 
 {% block content %}
 
-<a class="btn btn-outline-success btn-lg" role="button"
+
+        <a class="btn btn-outline-success btn-lg" role="button"
                            data-bs-toggle="tooltip" data-bs-placement="top"
                            title="Criar Reporter pela Funcao"
                            href="{% url 'relacionamentos:reporter_create_function' %}">
                             <i class="bi bi-plus-square"></i> Criar Reporter Function</a>
 
-<a class="btn btn-outline-success btn-lg" role="button"
+
+        <a class="btn btn-outline-success btn-lg" role="button"
                            data-bs-toggle="tooltip" data-bs-placement="top"
                            title="Criar Reporter pela Classe"
                            href="{% url 'relacionamentos:reporter_create_class' %}">
                             <i class="bi bi-plus-square"></i> Criar Reporter Classe </a>
 
-<a class="btn btn-outline-success btn-lg" role="button"
+        <a class="btn btn-outline-success btn-lg" role="button"
                            data-bs-toggle="tooltip" data-bs-placement="top"
                            title="Criar Reporter pela Classe"
                            href="{% url 'relacionamentos:reporter_create_generic' %}">
                             <i class="bi bi-plus-square"></i> Criar Reporter Gerneric </a>
 
 
-{% if lista %}
-    <table class="table table-hover">
-        <thead>
-            <th>#</th>
-            <th>CPF</th>
-            <th>Nome</th>
-            <th>Ações Funções</th>
-            <th>Ações Classes</th>
-            <th>Ações Generic</th>
-        </thead>
-        <tbody>
+        {% if lista %}
+            <table class="table table-hover">
+                <thead>
+                    <th>#</th>
+                    <th>CPF</th>
+                    <th>Nome</th>
+                    <th>Ações Funções</th>
+                    <th>Ações Classes</th>
+                    <th>Ações Generic</th>
+                </thead>
+                <tbody>
 
-        {% for objeto_reporter in lista %}
-            <tr>
-                <td>{{ objeto_reporter.id }}</td>
-                <td>{{ objeto_reporter.cpf }}</td>
-                <td>{{ objeto_reporter.name }}</td>
-                <td>
+                {% for objeto_reporter in lista %}
+                    <tr>
+                        <td>{{ objeto_reporter.id }}</td>
+                        <td>{{ objeto_reporter.cpf }}</td>
+                        <td>{{ objeto_reporter.name }}</td>
+                        <td>
+                                <div>
+                                    {% if perms.relacionamentos.view_reporter %}
+                                    <a class="btn btn-info" role="button"
+                                       data-bs-toggle="tooltip" data-bs-placement="top"
+                                       title="Detalhar com Funções"
+                                       href="{% url 'relacionamentos:reporter_list_details_function' objeto_reporter.id %}">
+                                        <i class="bi bi-info-circle-fill"></i> Detalhar </a>
+                                    {% endif %}
+                                </div>
+
+                                <div>
+                                    {% if perms.relacionamentos.delete_reporter %}
+                                    <a class="btn btn-danger" role="button"
+                                       data-bs-toggle="tooltip" data-bs-placement="top"
+                                       title="Detetar com Funções"
+                                       href="{% url 'relacionamentos:reporter_delete_function' objeto_reporter.id %}">
+                                        <i class="bi bi-fire"></i> Excluir </a>
+                                    {% endif %}
+                                </div>
+
+                                <div>
+                                    {% if perms.relacionamentos.change_cpf_reporter %}
+                                    <a class="btn btn-warning" role="button"
+                                       data-bs-toggle="tooltip" data-bs-placement="top"
+                                       title="Gerar CPF com Funções"
+                                       href="{% url 'relacionamentos:reporter_cpf_generator_function' objeto_reporter.id %}">
+                                        <i class="bi bi-receipt-cutoff"></i> Gerar CPF </a>
+                                    {% endif %}
+                                </div>
+
+                                <div>
+                                    {% if perms.relacionamentos.change_reporter %}
+                                    <a class="btn btn-primary" role="button"
+                                       data-bs-toggle="tooltip" data-bs-placement="top"
+                                       title="Atualizar Reporter com Funções"
+                                       href="{% url 'relacionamentos:reporter_update_function' objeto_reporter.id %}">
+                                        <i class="bi bi-arrow-clockwise"></i> Update reporter </a>
+                                    {% endif %}
+                                </div>
+
+                        </td>
+
+                        <td>
+
+                            <div>
+                                <div>
+                                    {% if perms.relacionamentos.view_reporter %}
+                                    <a class="btn btn-info" role="button"
+                                       data-bs-toggle="tooltip" data-bs-placement="top"
+                                       title="Detalhar Reporter com Classe"
+                                       href="{% url 'relacionamentos:reporter_details_class' objeto_reporter.id %}">
+                                        <i class="bi bi-info-circle-fill"></i> Detalhar </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div>
+                                <div>
+                                    {% if perms.relacionamentos.delete_reporter %}
+                                    <a class="btn btn-danger" role="button"
+                                       data-bs-toggle="tooltip" data-bs-placement="top"
+                                       title="Excluir Reporter com Classe"
+                                       href="{% url 'relacionamentos:reporter_delete_class' objeto_reporter.id %}">
+                                        <i class="bi bi-fire"></i> Excluir </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div>
+                                <div>
+                                    {% if perms.relacionamentos.change_cpf_reporter %}
+                                    <a class="btn btn-warning" role="button"
+                                       data-bs-toggle="tooltip" data-bs-placement="top"
+                                       title="Gerar CPF com Classe Reporter"
+                                       href="{% url 'relacionamentos:reporter_cpf_generator_class' objeto_reporter.id %}">
+                                        <i class="bi bi-receipt-cutoff"></i> Gerar CPF </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div>
+                                    {% if perms.relacionamentos.change_reporter %}
+                                    <a class="btn btn-primary" role="button"
+                                       data-bs-toggle="tooltip" data-bs-placement="top"
+                                       title="Atualizar Reporter com Classe"
+                                       href="{% url 'relacionamentos:reporter_update_class' objeto_reporter.id %}">
+                                        <i class="bi bi-arrow-clockwise"></i> Update reporter </a>
+                                    {% endif %}
+                                </div>
+
+
+                        </td>
+
+                        <td>
                         <div>
-                            <a class="btn btn-info" role="button"
-                               data-bs-toggle="tooltip" data-bs-placement="top"
-                               title="Detalhar com Funções"
-                               href="{% url 'relacionamentos:reporter_list_details_function' objeto_reporter.id %}">
-                                <i class="bi bi-info-circle-fill"></i> Detalhar </a>
-
+                            <div>
+                                {% if perms.relacionamentos.view_reporter %}
+                                <a class="btn btn-info" role="button"
+                                   data-bs-toggle="tooltip" data-bs-placement="top"
+                                   title="Detalhar Reporter com Classe"
+                                   href="{% url 'relacionamentos:reporter_details_generic' objeto_reporter.id %}">
+                                    <i class="bi bi-info-circle-fill"></i> Detalhar </a>
+                                {% endif %}
+                            </div>
                         </div>
 
                         <div>
-                            <a class="btn btn-danger" role="button"
-                               data-bs-toggle="tooltip" data-bs-placement="top"
-                               title="Detetar com Funções"
-                               href="{% url 'relacionamentos:reporter_delete_function' objeto_reporter.id %}">
-                                <i class="bi bi-fire"></i> Excluir </a>
+                            <div>
+                                {% if perms.relacionamentos.delete_reporter %}
+                                <a class="btn btn-danger" role="button"
+                                   data-bs-toggle="tooltip" data-bs-placement="top"
+                                   title="Excluir Reporter com Classe"
+                                   href="{% url 'relacionamentos:reporter_delete_generic' objeto_reporter.id %}">
+                                    <i class="bi bi-fire"></i> Excluir </a>
+                                {% endif %}
+                            </div>
                         </div>
 
                         <div>
-                            <a class="btn btn-warning" role="button"
-                               data-bs-toggle="tooltip" data-bs-placement="top"
-                               title="Gerar CPF com Funções"
-                               href="{% url 'relacionamentos:reporter_cpf_generator_function' objeto_reporter.id %}">
-                                <i class="bi bi-receipt-cutoff"></i> Gerar CPF </a>
+                            <div>
+                                {% if perms.relacionamentos.change_cpf_reporter %}
+                                <a class="btn btn-warning" role="button"
+                                   data-bs-toggle="tooltip" data-bs-placement="top"
+                                   title="Gerar CPF com Classe Reporter"
+                                   href="{% url 'relacionamentos:reporter_cpf_generator_class' objeto_reporter.id %}">
+                                    <i class="bi bi-receipt-cutoff"></i> Gerar CPF </a>
+                                {% endif %}
+                            </div>
                         </div>
 
                         <div>
-                            <a class="btn btn-primary" role="button"
-                               data-bs-toggle="tooltip" data-bs-placement="top"
-                               title="Atualizar Reporter com Funções"
-                               href="{% url 'relacionamentos:reporter_update_function' objeto_reporter.id %}">
-                                <i class="bi bi-arrow-clockwise"></i> Update reporter </a>
-                        </div>
+                                {% if perms.relacionamentos.change_reporter %}
+                                <a class="btn btn-primary" role="button"
+                                   data-bs-toggle="tooltip" data-bs-placement="top"
+                                   title="Atualizar Reporter com Classe"
+                                   href="{% url 'relacionamentos:reporter_update_generic' objeto_reporter.id %}">
+                                    <i class="bi bi-arrow-clockwise"></i> Update reporter </a>
+                                {% endif %}
+                            </div>
 
-                </td>
-
-                <td>
-
-                    <div>
-                        <div>
-                            <a class="btn btn-info" role="button"
-                               data-bs-toggle="tooltip" data-bs-placement="top"
-                               title="Detalhar Reporter com Classe"
-                               href="{% url 'relacionamentos:reporter_details_class' objeto_reporter.id %}">
-                                <i class="bi bi-info-circle-fill"></i> Detalhar </a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <a class="btn btn-danger" role="button"
-                               data-bs-toggle="tooltip" data-bs-placement="top"
-                               title="Excluir Reporter com Classe"
-                               href="{% url 'relacionamentos:reporter_delete_class' objeto_reporter.id %}">
-                                <i class="bi bi-fire"></i> Excluir </a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <a class="btn btn-warning" role="button"
-                               data-bs-toggle="tooltip" data-bs-placement="top"
-                               title="Gerar CPF com Classe Reporter"
-                               href="{% url 'relacionamentos:reporter_cpf_generator_class' objeto_reporter.id %}">
-                                <i class="bi bi-receipt-cutoff"></i> Gerar CPF </a>
-                        </div>
-                    </div>
-
-                    <div>
-                            <a class="btn btn-primary" role="button"
-                               data-bs-toggle="tooltip" data-bs-placement="top"
-                               title="Atualizar Reporter com Classe"
-                               href="{% url 'relacionamentos:reporter_update_class' objeto_reporter.id %}">
-                                <i class="bi bi-arrow-clockwise"></i> Update reporter </a>
-                        </div>
-
-
-                </td>
-
-                <td>
-                <div>
-                    <div>
-                        <a class="btn btn-info" role="button"
-                           data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="Detalhar Reporter com Classe"
-                           href="{% url 'relacionamentos:reporter_details_generic' objeto_reporter.id %}">
-                            <i class="bi bi-info-circle-fill"></i> Detalhar </a>
-                    </div>
-                </div>
-
-                <div>
-                    <div>
-                        <a class="btn btn-danger" role="button"
-                           data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="Excluir Reporter com Classe"
-                           href="{% url 'relacionamentos:reporter_delete_generic' objeto_reporter.id %}">
-                            <i class="bi bi-fire"></i> Excluir </a>
-                    </div>
-                </div>
-
-                <div>
-                    <div>
-                        <a class="btn btn-warning" role="button"
-                           data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="Gerar CPF com Classe Reporter"
-                           href="{% url 'relacionamentos:reporter_cpf_generator_class' objeto_reporter.id %}">
-                            <i class="bi bi-receipt-cutoff"></i> Gerar CPF </a>
-                    </div>
-                </div>
-
-                <div>
-                        <a class="btn btn-primary" role="button"
-                           data-bs-toggle="tooltip" data-bs-placement="top"
-                           title="Atualizar Reporter com Classe"
-                           href="{% url 'relacionamentos:reporter_update_generic' objeto_reporter.id %}">
-                            <i class="bi bi-arrow-clockwise"></i> Update reporter </a>
-                    </div>
-
-            </td>
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-{% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
 {% endblock content %}

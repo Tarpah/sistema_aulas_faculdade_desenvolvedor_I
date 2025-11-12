@@ -1,11 +1,18 @@
 import random
+
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy
+
 from relacionamentos.forms import ReporterForm
 from relacionamentos.models import Reporter
 from django.views import View
 
 
+
 class ReporterListView(View):
+    login_url = reverse_lazy('account:login')
+    permission_required = 'relacionamentos.view_reporter'
 
     @staticmethod
     def get(request):
@@ -17,7 +24,10 @@ class ReporterListView(View):
 
         return render(request, 'reporter/list.html', lista_reporters)
 
-class ReporterDetailsView(View):
+class ReporterDetailsView(PermissionRequiredMixin, View):
+    login_url = reverse_lazy('account:login')
+    permission_required = 'relacionamentos.view_reporter'
+
 
     @staticmethod
     def get(request, pk):
@@ -27,7 +37,7 @@ class ReporterDetailsView(View):
         }
         return render(request, 'reporter/read.html', context)
 
-class ReporterCPFGeneratorView(View):
+class ReporterCPFGeneratorView(LoginRequiredMixin, PermissionRequiredMixin, View):
 
     @staticmethod
     def get(request, pk):
@@ -50,7 +60,7 @@ class ReporterCPFGeneratorView(View):
             print("Erro gerando CPF")
             return redirect('relacionamentos:reporter_list_class')
 
-class ReporterDeleteView(View):
+class ReporterDeleteView(LoginRequiredMixin, PermissionRequiredMixin, View):
 
     @staticmethod
     def get(request, pk):
@@ -83,7 +93,7 @@ class ReporterDeleteView(View):
             return render(request, "reporter/delete.html", context)
         return redirect('relacionamentos:reporter_list_class')
 
-class ReporterCreateView(View):
+class ReporterCreateView(LoginRequiredMixin, PermissionRequiredMixin, View):
     @staticmethod
     def get(request):
         form = ReporterForm()
@@ -94,6 +104,7 @@ class ReporterCreateView(View):
 
     @staticmethod
     def post(request):
+
         form = ReporterForm(request.POST)
         if form.is_valid():
             form.save()
@@ -104,7 +115,7 @@ class ReporterCreateView(View):
         }
         return render(request, 'reporter/create_simple.html', context)
 
-class ReporterUpdateView(View):
+class ReporterUpdateView(LoginRequiredMixin, PermissionRequiredMixin, View):
 
     @staticmethod
     def get(request, pk):
@@ -120,6 +131,7 @@ class ReporterUpdateView(View):
     @staticmethod
     def post(request, pk):
         objeto_reporter = get_object_or_404(Reporter, pk=pk)
+
         form = ReporterForm(request.POST, instance=objeto_reporter)
 
         if form.is_valid():

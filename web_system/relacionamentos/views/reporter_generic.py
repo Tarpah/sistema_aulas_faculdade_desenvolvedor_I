@@ -11,6 +11,7 @@ class ReporterListViewGeneric(ListView):
     context_object_name = 'lista' # código do professor
     queryset = Reporter.objects.find_by_nome('F').order_by("name") # código do professor não entendi
 
+
     def get_queryset(self):
         objects = Reporter.objects.all()
         #objects = Reporter.objects.find_by_nome('Fer')# código do professor
