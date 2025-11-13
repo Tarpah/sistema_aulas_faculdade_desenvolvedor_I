@@ -1,3 +1,5 @@
+# ajuda com lookups https://www.w3schools.com/django/django_ref_field_lookups.php
+
 from django.template.defaultfilters import title
 
 from manage import *

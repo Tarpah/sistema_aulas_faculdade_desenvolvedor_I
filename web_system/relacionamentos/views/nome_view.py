@@ -8,10 +8,13 @@ from relacionamentos.models import Reporter
 class NomeView(View):
     @staticmethod
     def get(request, name=''):
+        # padrão esperado http://localhost:8000/relacionamentos/exemplo/classe/%20?type=json ou http
         if name == '' or name == ' ':
             objetos = list(Reporter.objects.all())
+            print('Lista')
         else:
             objetos = Reporter.objects.all()
+            print('QuerySet')
 
         tipo = str(request.GET.get("type"))
         print('tipo:')
@@ -27,7 +30,7 @@ class NomeView(View):
                              f"email:{objeto.email} <br />"
                              f"<hr>")
 
-                return HttpResponse(mensagem, status=200)
+            return HttpResponse(mensagem, status=200)
 
         elif tipo.lower() == 'json':
             print('entrou no json')
