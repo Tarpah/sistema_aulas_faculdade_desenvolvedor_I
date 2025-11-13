@@ -19,7 +19,7 @@ def reporter_list_function(request):
 
     return render(request, 'reporter/list.html', lista_reporters)
 
-@permission_required('relacionamentos:view_reporter', raise_exception=True)
+@permission_required('relacionamentos.view_reporter', raise_exception=True)
 @require_http_methods(["GET"])
 def reporter_list_details_function(request, pk):
     objeto_reporter = Reporter.objects.get(id=pk)
@@ -29,7 +29,7 @@ def reporter_list_details_function(request, pk):
     return render(request, 'reporter/read.html', context)
 
 @login_required
-@permission_required('relacionamentos:delete_reporter', raise_exception=True)
+@permission_required('relacionamentos.delete_reporter', raise_exception=True)
 @require_http_methods(["GET", "POST"])
 def reporter_delete_function(request, pk):
     objeto_reporter = get_object_or_404(Reporter, pk=pk)
@@ -50,7 +50,7 @@ def reporter_delete_function(request, pk):
         print(e)
         return render(request, "reporter/list.html", context)
 
-@permission_required('relacionamentos:change_cpf_reporter', raise_exception=True)
+@permission_required('relacionamentos.change_cpf_reporter', raise_exception=True)
 @require_http_methods(["GET"]) #
 def reporter_cpf_generator_function(request, pk):
     objeto_reporter = get_object_or_404(Reporter, pk=pk)
@@ -72,8 +72,8 @@ def reporter_cpf_generator_function(request, pk):
         print("Erro gerando CPF")
         return redirect('relacionamentos:reporter_list_function')
 
-@permission_required('relacionamentos:change_reporter', raise_exception=True)
 @login_required
+@permission_required('relacionamentos.change_reporter', raise_exception=True)
 @require_http_methods(["GET", "POST"])
 def reporter_create_function(request):
     if request.method == 'POST':
@@ -88,8 +88,8 @@ def reporter_create_function(request):
     }
     return render(request, 'reporter/create_simple.html', context)
 
-@permission_required('relacionamentos:change_reporter', raise_exception=True)
 @login_required
+@permission_required('relacionamentos.change_reporter', raise_exception=True)
 @require_http_methods(["GET", "POST"])
 def reporter_update_function(request, pk):
     objeto_reporter = get_object_or_404(Reporter, pk=pk)

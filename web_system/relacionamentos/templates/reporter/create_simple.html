@@ -5,7 +5,7 @@
 {% endblock title %}
 
 {% block content %}
-<form id="objeto_reporter" action="{% url 'relacionamentos:reporter_create_class' %}" method="post">
+    <form id="objeto_reporter" action="{% url 'relacionamentos:reporter_create_class' %}" method="post">
 
     {% csrf_token %}
     {{ form.as_p }}

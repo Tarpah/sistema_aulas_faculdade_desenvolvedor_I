@@ -10,8 +10,8 @@ from django.views import View
 
 
 
-class ReporterListView(View):
-    login_url = reverse_lazy('account:login')
+class ReporterListView(PermissionRequiredMixin, View):
+    login_url = reverse_lazy('accounts:login')
     permission_required = 'relacionamentos.view_reporter'
 
     @staticmethod
@@ -38,6 +38,7 @@ class ReporterDetailsView(PermissionRequiredMixin, View):
         return render(request, 'reporter/read.html', context)
 
 class ReporterCPFGeneratorView(LoginRequiredMixin, PermissionRequiredMixin, View):
+    permission_required = 'relacionamentos.change_cpf_reporter'
 
     @staticmethod
     def get(request, pk):
@@ -61,6 +62,7 @@ class ReporterCPFGeneratorView(LoginRequiredMixin, PermissionRequiredMixin, View
             return redirect('relacionamentos:reporter_list_class')
 
 class ReporterDeleteView(LoginRequiredMixin, PermissionRequiredMixin, View):
+    permission_required = 'relacionamentos.delete_reporter'
 
     @staticmethod
     def get(request, pk):
@@ -94,6 +96,8 @@ class ReporterDeleteView(LoginRequiredMixin, PermissionRequiredMixin, View):
         return redirect('relacionamentos:reporter_list_class')
 
 class ReporterCreateView(LoginRequiredMixin, PermissionRequiredMixin, View):
+    permission_required = 'relacionamentos.change_reporter'
+
     @staticmethod
     def get(request):
         form = ReporterForm()
@@ -116,6 +120,7 @@ class ReporterCreateView(LoginRequiredMixin, PermissionRequiredMixin, View):
         return render(request, 'reporter/create_simple.html', context)
 
 class ReporterUpdateView(LoginRequiredMixin, PermissionRequiredMixin, View):
+    permission_required = 'relacionamentos.change_reporter'
 
     @staticmethod
     def get(request, pk):
