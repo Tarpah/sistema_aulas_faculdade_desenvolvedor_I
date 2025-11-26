@@ -42,9 +42,13 @@
           </ul>
         </li>
 
+
+
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="{% url 'function_contato' %}">Enviar Email</a>
       </li>
+
+
 
       </ul>
       <form class="d-flex" role="search">
@@ -52,8 +56,22 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
 
-
-
+      {% if user.is_authenticated %}
+        <span class="navbar-text text-white px-2">
+          <a class="nav-link" href="{% url 'profile' %}">
+            <i class="bi bi-person-fill"> </i> {{ user.first_name }}
+          </a></span>
+        <div class="me-2"></div>
+        <form action="{% url 'logout' %}" method="post">
+          {% csrf_token %}
+          <button class="btn btn-outline-danger btn"
+          role="button" type="submit"> <i
+                  class="bi bi-box-arrow-in-left"> </i> </button> </form>
+        {% else %}
+          <a class="btn btn-outline-primary btn"
+          role="button" href="{% url 'login' %}"> <i
+                  class="bi bi-box-arrow-in-right"> </i> </a>
+        {% endif %}
     </div>
 
 

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}<h1>Perfil do Usuário</h1>{% endblock title %}
+
+{% block content %}
+<div class="card border-primary-subtle shadow rounded-3">
+  <div class="card-header text-primary-emphasis bg-primary-subtle border
+  border-primary-subtle rounded-3 mb-3 text-white text-center">
+    <h4 class="mb-0">{{ usuario.get_full_name|default:usuario.username }}</h4>
+  </div>
+  <div class="card-body text-center py-5">
+
+    <i class="bi bi-person-circle" style="font-size: 8rem; color: #6c757d;"></i>
+
+    <h3 class="mt-3 mb-0">@{{ usuario.username }}</h3>
+
+    <hr class="my-4">
+
+    <!-- Informações -->
+    <div class="text-start">
+      <dl class="row justify-content-center">
+        <dt class="col-sm-5">Email:</dt>
+        <dd class="col-sm-7">{{ usuario.email }}</dd>
+
+        <dt class="col-sm-5">Data de cadastro:</dt>
+        <dd class="col-sm-7">{{ usuario.date_joined|date:"d/m/Y H:i" }}</dd>
+
+        <dt class="col-sm-5">Último login:</dt>
+        <dd class="col-sm-7">{{ usuario.last_login|date:"d/m/Y H:i" }}</dd>
+      </dl>
+    </div>
+
+    <!-- Ações -->
+    <div class="mt-4 d-flex justify-content-center gap-3">
+      <a href="{% url 'logout' %}" class="btn btn-outline-danger">Logout</a>
+      <a href="{% url 'password_change' %}" class="btn btn-outline-secondary">Alterar Senha</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

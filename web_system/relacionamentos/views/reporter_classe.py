@@ -38,7 +38,8 @@ class ReporterDetailsView(PermissionRequiredMixin, View):
         return render(request, 'reporter/read.html', context)
 
 class ReporterCPFGeneratorView(LoginRequiredMixin, PermissionRequiredMixin, View):
-    permission_required = 'relacionamentos.change_cpf_reporter'
+    login_url = reverse_lazy('account:login')
+    permission_required = 'relacionamentos.generate_code_exemplo'
 
     @staticmethod
     def get(request, pk):

@@ -31,3 +31,8 @@ class Reporter(BaseModel):
                 )
         except ValueError:
             pass
+
+    class Meta:
+        permissions = [
+            ('generate_code_exemplo', "can generate new code"),
+        ]

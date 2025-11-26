@@ -6,9 +6,12 @@ from web_system import views
 from .views import ContactView
 from django.contrib.auth import views as auth_views
 from web_system.forms.custom_login_form import CustomLoginForm
+from .views import ProfileView
 
 urlpatterns = [
     # rotas para logar
+
+    path('accounts/profile/', ProfileView.as_view(), name='profile'),
     path('accounts/login/', auth_views.LoginView.as_view(
         template_name ="accounts/login.html",
         authentication_form=CustomLoginForm)),
