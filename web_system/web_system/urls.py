@@ -9,8 +9,8 @@ from web_system.forms.custom_login_form import CustomLoginForm
 from .views import ProfileView
 
 urlpatterns = [
-    # rotas para logar
 
+    # rotas para logar
     path('accounts/profile/', ProfileView.as_view(), name='profile'),
     path('accounts/login/', auth_views.LoginView.as_view(
         template_name ="accounts/login.html",
@@ -28,4 +28,5 @@ urlpatterns = [
     path('relacionamentos/', include('relacionamentos.urls',  namespace="app"),),
     path('aula/', include('aula.urls'),),
     path('admin/', admin.site.urls),
+    path('services/', include('services.urls')),
 ]
