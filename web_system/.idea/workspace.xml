@@ -5,16 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7909b89-ed82-40a2-8441-3aa175f33fe0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/services/serializers/reporter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/views/reporter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/web_system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/web_system.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relacionamentos/models/reporter.py" beforeDir="false" afterPath="$PROJECT_DIR$/relacionamentos/models/reporter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/relacionamentos/templates/reporter/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/relacionamentos/templates/reporter/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relacionamentos/views/reporter_classe.py" beforeDir="false" afterPath="$PROJECT_DIR$/relacionamentos/views/reporter_classe.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/serializers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/serializers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/views/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web_system/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_system/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_system/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_system/views/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +47,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "<unknown>",
-    "last_opened_file_path": "C:/Users/dti/Documents/GitHub/sistema_aulas_faculdade_desenvolvedor_I/web_system",
+    "git-widget-placeholder": "dia__03__12__2025",
+    "last_opened_file_path": "C:/Users/Teste/Documents/github/sistema_aulas_faculdade_desenvolvedor_I/web_system",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
@@ -58,6 +58,7 @@
       <recent name="C:\Users\Sandro\Documents\Github\sistema_aulas_faculdade_desenvolvedor_I\web_system\relacionamentos\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Teste\Documents\github\sistema_aulas_faculdade_desenvolvedor_I\web_system\services\views" />
       <recent name="C:\Users\dti\Documents\GitHub\sistema_aulas_faculdade_desenvolvedor_I\web_system\services" />
     </key>
   </component>
@@ -133,7 +134,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-fb887030ada0-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.21565.199" />
+        <option value="bundled-python-sdk-657d8234b839-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.74" />
       </set>
     </attachedChunks>
   </component>

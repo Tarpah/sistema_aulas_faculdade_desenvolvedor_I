@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth import authenticate
 from django.urls import path, include
+
+from relacionamentos.views import ReporterListView
 from web_system.views import index
 from web_system import views
 from .views import ContactView
@@ -9,6 +11,8 @@ from web_system.forms.custom_login_form import CustomLoginForm
 from .views import ProfileView
 
 urlpatterns = [
+
+
 
     # rotas para logar
     path('accounts/profile/', ProfileView.as_view(), name='profile'),
